@@ -315,7 +315,7 @@ $('avatarCircle').onclick=function(){$('avatarUrlInput').value='';$('avatarUrlIn
 $('avatarUrlInput').oninput=function(){$('avatarUrlInput').dataset.ld='';var v=$('avatarUrlInput').value.trim();$('avatarPreviewImg').src=v;$('avatarPreviewImg').style.display=v?'block':'none';};
 $('avatarLocalBtn').onclick=function(){$('avatarFileInput').value='';$('avatarFileInput').click();};
 $('avatarFileInput').onchange=function(e){var f=e.target.files[0];if(!f)return;var r=new FileReader();r.onload=function(){compressImg(r.result,200,200,0.7,function(d){$('avatarPreviewImg').src=d;$('avatarPreviewImg').style.display='block';$('avatarUrlInput').value='';$('avatarUrlInput').dataset.ld=d;});};r.readAsDataURL(f);$('avatarFileInput').value='';};
-$('avatarConfirmBtn').onclick=function(){varld=$('avatarUrlInput').dataset.ld||'';var uv=$('avatarUrlInput').value.trim();if(ld){state.avatarUrl=ld;}else if(uv){state.avatarUrl=uv;}$('avatarUrlInput').dataset.ld='';saveState();applyAvatar();$('avatarModal').classList.remove('active');};
+$('avatarConfirmBtn').onclick=function(){var ld=$('avatarUrlInput').dataset.ld||'';var uv=$('avatarUrlInput').value.trim();if(ld){state.avatarUrl=ld;}else if(uv){state.avatarUrl=uv;}$('avatarUrlInput').dataset.ld='';saveState();applyAvatar();$('avatarModal').classList.remove('active');};
 $('avatarClearBtn').onclick=function(){state.avatarUrl=null;$('avatarUrlInput').dataset.ld='';saveState();applyAvatar();$('avatarModal').classList.remove('active');};
 $('avatarCancelBtn').onclick=function(){$('avatarUrlInput').dataset.ld='';$('avatarModal').classList.remove('active');};
 $('avatarModal').onclick=function(e){if(e.target===$('avatarModal')){$('avatarUrlInput').dataset.ld='';$('avatarModal').classList.remove('active');}};
